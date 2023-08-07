@@ -3,8 +3,15 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var stat = false;
+var mobileStat = false;
 
-
+$("#restart").click(function(){
+    if(!mobileStat){
+        $("#level-title").text("level "+level);
+        nextSequence();
+        mobileStat= true;
+    }
+})
 
 $(document).keypress(function() {
     if (!stat){
@@ -70,6 +77,7 @@ function checkAnswer(currentLevel){
         gamePattern = [];
         userClickedPattern = [];
         level = 0;
-        stat = false
+        stat = false;
+        mobileStat = false;
     }
 }
